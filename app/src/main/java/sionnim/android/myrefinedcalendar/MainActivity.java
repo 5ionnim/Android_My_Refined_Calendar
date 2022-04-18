@@ -10,44 +10,42 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    //final int maxYear = 2050;
-    //final int minYear = 1990;
-    //ViewPager2 viewPager;
     TextView yearText;
     TextView monthText;
     Button yearPrevButton;
     Button yearNextButton;
     Button monthPrevButton;
     Button monthNextButton;
-    //CalendarPagerAdapter calendarPagerAdapter;
+    CalendarPager calendarPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //viewPager = findViewById(R.id.viewPager);
         yearText = findViewById(R.id.yearText);
         monthText = findViewById(R.id.monthText);
-        /*
-        calendarPagerAdapter = new CalendarPagerAdapter(minYear, maxYear, new CalendarPagerAdapter.OnItemClickListener() {
+
+        calendarPager = findViewById(R.id.calendarPager);
+
+        yearText.setText(""+calendarPager.getCurrentYear());
+        monthText.setText(""+(calendarPager.getCurrentMonth()+1));
+
+        calendarPager.setOnPageSelectedListener(new CalendarPager.OnCalendarPageSelectedListener() {
+            @Override
+            public void onPageSelected(int year, int month, int position) {
+                yearText.setText(""+year);
+                monthText.setText(""+(month+1));
+            }
+        });
+
+        calendarPager.setOnItemClickListener(new CalendarPagerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int year, int month, int date) {
                 Toast.makeText(getApplicationContext(),""+year+"/"+(month+1)+"/"+date, Toast.LENGTH_SHORT).show();
             }
         });
-        viewPager.setAdapter(calendarPagerAdapter);
-        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                yearText.setText(""+calendarPagerAdapter.selection.calculateCurrentYear(position));
-                monthText.setText(""+(calendarPagerAdapter.selection.calculateCurrentMonth(position)+1));
-                calendarPagerAdapter.selection.setCurrentPage(position);
-            }
-        });
-        viewPager.setCurrentItem(calendarPagerAdapter.selection.getCurrentPage());
-        */
+
         yearPrevButton = findViewById(R.id.yearPrevButton);
         yearNextButton = findViewById(R.id.yearNextButton);
         monthPrevButton = findViewById(R.id.monthPrevButton);
@@ -56,25 +54,25 @@ public class MainActivity extends AppCompatActivity {
         yearPrevButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //viewPager.setCurrentItem(viewPager.getCurrentItem()-12);
+                calendarPager.moveCalendarPage(-12);
             }
         });
         yearNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //viewPager.setCurrentItem(viewPager.getCurrentItem()+12);
+                calendarPager.moveCalendarPage(12);
             }
         });
         monthPrevButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-               //viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
+                calendarPager.moveCalendarPage(-1);
             }
         });
         monthNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                //viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                calendarPager.moveCalendarPage(1);
             }
         });
     }

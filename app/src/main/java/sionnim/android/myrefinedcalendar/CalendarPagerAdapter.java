@@ -25,19 +25,7 @@ public class CalendarPagerAdapter extends RecyclerView.Adapter {
         setItems();
     }
 
-    public CalendarPagerAdapter(OnItemClickListener listener){
-        this.listener = listener;
-        this.selection = new Selection();
-        setItems();
-    }
-
     public CalendarPagerAdapter(int minYear, int maxYear){
-        this.selection = new Selection(minYear, maxYear);
-        setItems();
-    }
-
-    public CalendarPagerAdapter(int minYear, int maxYear, OnItemClickListener listener){
-        this.listener = listener;
         this.selection = new Selection(minYear, maxYear);
         setItems();
     }
@@ -99,5 +87,9 @@ public class CalendarPagerAdapter extends RecyclerView.Adapter {
     public void setItemIsSelected(int page, int pos, boolean tag){
         items.get(page).setDateItemIsSelected(pos, tag);
         items.get(page).notifyItemChanged(pos);
+    }
+
+    public void setListener(OnItemClickListener listener){
+        this.listener = listener;
     }
 }
