@@ -10,25 +10,26 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    final int maxYear = 2050;
-    final int minYear = 1990;
-    ViewPager2 viewPager;
+    //final int maxYear = 2050;
+    //final int minYear = 1990;
+    //ViewPager2 viewPager;
     TextView yearText;
     TextView monthText;
     Button yearPrevButton;
     Button yearNextButton;
     Button monthPrevButton;
     Button monthNextButton;
-    CalendarPagerAdapter calendarPagerAdapter;
+    //CalendarPagerAdapter calendarPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewPager = findViewById(R.id.viewPager);
+        //viewPager = findViewById(R.id.viewPager);
         yearText = findViewById(R.id.yearText);
         monthText = findViewById(R.id.monthText);
+        /*
         calendarPagerAdapter = new CalendarPagerAdapter(minYear, maxYear, new CalendarPagerAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int year, int month, int date) {
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         viewPager.setCurrentItem(calendarPagerAdapter.selection.getCurrentPage());
-
+        */
         yearPrevButton = findViewById(R.id.yearPrevButton);
         yearNextButton = findViewById(R.id.yearNextButton);
         monthPrevButton = findViewById(R.id.monthPrevButton);
@@ -55,24 +56,25 @@ public class MainActivity extends AppCompatActivity {
         yearPrevButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                viewPager.setCurrentItem(viewPager.getCurrentItem()-12);
+                //viewPager.setCurrentItem(viewPager.getCurrentItem()-12);
             }
         });
         yearNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+12);
+                //viewPager.setCurrentItem(viewPager.getCurrentItem()+12);
             }
         });
         monthPrevButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                viewPager.setCurrentItem(viewPager.getCurrentItem()-1); }
+               //viewPager.setCurrentItem(viewPager.getCurrentItem()-1);
+            }
         });
         monthNextButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
+                //viewPager.setCurrentItem(viewPager.getCurrentItem()+1);
             }
         });
     }
