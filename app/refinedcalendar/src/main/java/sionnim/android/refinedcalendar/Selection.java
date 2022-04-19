@@ -1,4 +1,4 @@
-package sionnim.android.myrefinedcalendar;
+package sionnim.android.refinedcalendar;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

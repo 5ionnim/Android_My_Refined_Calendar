@@ -1,2 +1,3 @@
+include ':app:refinedcalendar'
 include ':app'
 rootProject.name = "MyRefinedCalendar"

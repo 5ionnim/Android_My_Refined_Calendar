@@ -1,4 +1,4 @@
-package sionnim.android.myrefinedcalendar;
+package sionnim.android.refinedcalendar;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,13 +1,15 @@
 package sionnim.android.myrefinedcalendar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import sionnim.android.refinedcalendar.CalendarPager;
+import sionnim.android.refinedcalendar.CalendarPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
     TextView yearText;

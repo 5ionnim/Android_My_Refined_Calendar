@@ -1,4 +1,4 @@
-package sionnim.android.myrefinedcalendar;
+package sionnim.android.refinedcalendar;
 
 public class DateItem {
     private Integer date = null;
