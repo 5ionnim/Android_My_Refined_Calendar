@@ -1,7 +1,9 @@
 package sionnim.android.myrefinedcalendar;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -14,47 +16,56 @@ public class CalendarPager extends LinearLayout {
     private OnCalendarPageSelectedListener listener;
 
     public interface OnCalendarPageSelectedListener{
-        void onPageSelected(int year, int month, int position);
+        void onPageSelected(int year, int month, int page);
     }
 
     public CalendarPager(Context context) {
         super(context);
-        initializeViews(context);
+        initializeViews(context, null);
     }
 
     public CalendarPager(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        initializeViews(context);
+        initializeViews(context, attrs);
     }
 
     public CalendarPager(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initializeViews(context);
+        initializeViews(context, attrs);
     }
 
     public CalendarPager(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        initializeViews(context);
+        initializeViews(context, attrs);
     }
 
-    private void initializeViews(Context context) {
+    private void initializeViews(Context context, AttributeSet attrs) {
         this.setOrientation(LinearLayout.VERTICAL);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View v = inflater.inflate(R.layout.layout_calendar, this);
         viewPager2 = v.findViewById(R.id.viewPager);
-        calendarPagerAdapter = new CalendarPagerAdapter();
+
+        if (attrs!=null){
+            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CalendarPager);
+            int minYear = typedArray.getInteger(R.styleable.CalendarPager_minYear, 1990);
+            int maxYear = typedArray.getInteger(R.styleable.CalendarPager_maxYear, 2050);
+            Log.d("year",""+minYear+","+maxYear);
+            calendarPagerAdapter = new CalendarPagerAdapter(minYear, maxYear);
+        } else {
+            calendarPagerAdapter = new CalendarPagerAdapter();
+        }
         viewPager2.setAdapter(calendarPagerAdapter);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                calendarPagerAdapter.selection.calculateCurrentYear(position);
-                calendarPagerAdapter.selection.calculateCurrentMonth(position);
-                calendarPagerAdapter.selection.setCurrentPage(position);
+            public void onPageSelected(int page) {
+                super.onPageSelected(page);
+                calendarPagerAdapter.selection.calculateCurrentYear(page);
+                calendarPagerAdapter.selection.calculateCurrentMonth(page);
+                //calendarPagerAdapter.selection.setCurrentPage(page);
                 if (listener != null){
                     listener.onPageSelected(getCurrentYear()
                             , getCurrentMonth()
-                            , position);
+                            , page);
                 }
             }
         });
@@ -63,7 +74,7 @@ public class CalendarPager extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        viewPager2.setCurrentItem(calendarPagerAdapter.selection.getCurrentPage());
+        viewPager2.setCurrentItem(calendarPagerAdapter.selection.getSelectedPage());
     }
 
     public void setOnItemClickListener(CalendarPagerAdapter.OnItemClickListener listener){
@@ -86,7 +97,7 @@ public class CalendarPager extends LinearLayout {
         return calendarPagerAdapter.selection.getCurrentMonth();
     }
 
-    public int getCurrentDate(){
-        return calendarPagerAdapter.selection.getCurrentDate();
+    public int getSelectedDate(){
+        return calendarPagerAdapter.selection.getSelectedDate();
     }
 }

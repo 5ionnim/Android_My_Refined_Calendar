@@ -21,12 +21,12 @@ public class CalendarPagerAdapter extends RecyclerView.Adapter {
     }
 
     public CalendarPagerAdapter(){
-        this.selection = new Selection();
+        selection = new Selection();
         setItems();
     }
 
     public CalendarPagerAdapter(int minYear, int maxYear){
-        this.selection = new Selection(minYear, maxYear);
+        selection = new Selection(minYear, maxYear);
         setItems();
     }
 
@@ -73,10 +73,10 @@ public class CalendarPagerAdapter extends RecyclerView.Adapter {
                         setItemIsSelected(page, pos, true);
                         selection.setSelectedPage(page);
                         selection.setSelectedPosition(pos);
-                        selection.setCurrentDate(date);
+                        selection.setSelectedDate(date);
                         if (listener!=null) {
                             listener.onItemClick(selection.getCurrentYear(), selection.getCurrentMonth()
-                                    , selection.getCurrentDate());
+                                    , selection.getSelectedDate());
                         }
                     }
                 }));

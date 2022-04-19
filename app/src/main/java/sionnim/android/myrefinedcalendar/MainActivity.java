@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         calendarPager.setOnPageSelectedListener(new CalendarPager.OnCalendarPageSelectedListener() {
             @Override
-            public void onPageSelected(int year, int month, int position) {
+            public void onPageSelected(int year, int month, int page) {
                 yearText.setText(""+year);
                 monthText.setText(""+(month+1));
             }

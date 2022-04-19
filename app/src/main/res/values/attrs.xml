@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="minYear" format="integer" />
+    <attr name="maxYear" format="integer" />
+
+    <declare-styleable name="CalendarPager">
+        <attr name="minYear"/>
+        <attr name="maxYear"/>
+    </declare-styleable>
+</resources>

@@ -8,10 +8,9 @@ public class Selection {
     private int maxYear = 2050;
     private int selectedPage;
     private int selectedPosition;
+    private int selectedDate;
     private int currentYear;
     private int currentMonth;
-    private int currentDate;
-    private int currentPage;
 
     public Selection(){
         initialSetting();
@@ -32,21 +31,18 @@ public class Selection {
     public void setCurrentYear(int currentYear){ this.currentYear = currentYear; }
     public int getCurrentMonth(){ return currentMonth; }
     public void setCurrentMonth(int currentMonth){ this.currentMonth = currentMonth; }
-    public int getCurrentDate(){ return currentDate; }
-    public void setCurrentDate(int currentDate){ this.currentDate = currentDate; }
-    public int getCurrentPage(){ return currentPage; }
-    public void setCurrentPage(int currentPage){ this.currentPage = currentPage; }
+    public int getSelectedDate(){ return selectedDate; }
+    public void setSelectedDate(int selectedDate){ this.selectedDate = selectedDate; }
 
     private void initialSetting(){
         GregorianCalendar today = new GregorianCalendar();
         currentYear = today.get(Calendar.YEAR);
         currentMonth = today.get(Calendar.MONTH);
-        currentDate = today.get(Calendar.DATE);
-        currentPage = (currentYear-minYear)*12 + currentMonth;
-        selectedPage = currentPage;
+        selectedDate = today.get(Calendar.DATE);
+        selectedPage = (currentYear-minYear)*12 + currentMonth;
 
         GregorianCalendar firstDate = new GregorianCalendar(currentYear, currentMonth, 1, 0, 0, 0);
-        selectedPosition = firstDate.get(Calendar.DAY_OF_WEEK)+currentDate-2;
+        selectedPosition = firstDate.get(Calendar.DAY_OF_WEEK)+selectedDate-2;
     }
 
     public int calculateCurrentMonth(int position){
