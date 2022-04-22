@@ -32,9 +32,9 @@ like this. (you can set minimum year and maximum year by adding 'minYear' and 'm
         app:maxYear="2030"/>
 ```
 
-Step 2. Set a `CalendarPager.setOnPageSelectedListener` and `CalendarPager.setOnItemClickListener` when you need it.
-
+Step 2. Set a `CalendarPager.setOnPageSelectedListener` and `CalendarPager.setOnItemClickListener` when you need it. 
 Or if you need to move page of CalendarPager you can call `CalendarPager.moveCalendarPage()`.
+
 you can see the example [here]
 
 [here]: /app/src/main/java/sionnim/android/myrefinedcalendar/MainActivity.java
