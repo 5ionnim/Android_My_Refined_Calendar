@@ -1,6 +1,6 @@
 ![initial](https://user-images.githubusercontent.com/68628681/164603634-9ab51556-1775-4969-bb6f-8ee27ee357d3.png)
 # Android_My_Refined_Calendar
-![initial](https://user-images.githubusercontent.com/68628681/164607979-d29e1433-70c3-437c-afc6-a44ca9ba4b17.gif)
+<img src="https://user-images.githubusercontent.com/68628681/164607979-d29e1433-70c3-437c-afc6-a44ca9ba4b17.gif" width="300px">
 
 ## Installation
 Step 1. Add it in your root build.gradle at the end of repositories
