@@ -28,7 +28,7 @@ dependencies {
 ## Usage
 Step 1. Add `CalendarPager` into your layouts or view hierarchy.
 
-like this. (you can set minimum year and maximum year by adding 'minYear' and 'maxYear' attributions)
+like this. (you can set minimum year and maximum year by adding 'minYear' and 'maxYear' attributes)
 
 ```xml
 <sionnim.android.refinedcalendar.CalendarPager
