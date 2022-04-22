@@ -18,3 +18,19 @@ dependencies {
   implementation 'com.github.5ionnim:Android_My_Refined_Calendar:${version}'
 }
 ```
+## Usage
+Step 1. Add `CalendarPager` into your layouts or view hierarchy.
+like this. (you can set minimum year and maximum year by adding 'minYear' and 'maxYear' attributions)
+```xml
+<sionnim.android.refinedcalendar.CalendarPager
+        android:id="@+id/calendarPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:minYear="1995"
+        app:maxYear="2030"/>
+```
+
+Step 2. Set a `CalendarPager.setOnPageSelectedListener` and `CalendarPager.setOnItemClickListener` when you need it.
+or if you need to move page of CalendarPager you can call `CalendarPager.moveCalendarPage()`.
+you can see the example [here]
+[here]:/
