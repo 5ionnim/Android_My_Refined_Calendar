@@ -38,3 +38,9 @@ Or if you need to move page of CalendarPager you can call `CalendarPager.moveCal
 you can see the example [here]
 
 [here]: /app/src/main/java/sionnim/android/myrefinedcalendar/MainActivity.java
+
+## License
+
+it's specified in the [LICENSE] file.
+
+[LICENSE]: /LICENSE
