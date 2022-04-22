@@ -1,6 +1,8 @@
 ![initial](https://user-images.githubusercontent.com/68628681/164603634-9ab51556-1775-4969-bb6f-8ee27ee357d3.png)
 # Android_My_Refined_Calendar
+
 [![](https://jitpack.io/v/5ionnim/Android_My_Refined_Calendar.svg)](https://jitpack.io/#5ionnim/Android_My_Refined_Calendar)
+
 <img src="https://user-images.githubusercontent.com/68628681/164607979-d29e1433-70c3-437c-afc6-a44ca9ba4b17.gif" width="300px">
 
 ## Installation
