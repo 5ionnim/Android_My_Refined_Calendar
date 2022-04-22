@@ -5,6 +5,8 @@
 
 <img src="https://user-images.githubusercontent.com/68628681/164607979-d29e1433-70c3-437c-afc6-a44ca9ba4b17.gif" width="300px">
 
+Android_My_Refined_Calendar provides a beautiful and simple design of Android's Calendar View.
+
 ## Installation
 Step 1. Add it in your root build.gradle at the end of repositories
 
